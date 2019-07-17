@@ -1,0 +1,9 @@
+<!--pages/list/list.wxml-->
+<block wx:for='{{dataList}}' wx:key='item'>
+  <view class="item-container">
+    <text class="item-name">上传人:{{item.name}}</text>
+    <text class="item-name">上传时间:{{item.time}}</text>
+    <!-- widthFix	缩放模式，宽度不变，高度自动变化，保持原图宽高比不变 -->
+    <image class="img" src="{{item.imgUrl}}" mode="widthFix"></image>
+  </view>
+</block>

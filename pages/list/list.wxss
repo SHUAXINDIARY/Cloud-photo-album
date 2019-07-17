@@ -1,0 +1,27 @@
+/* pages/list/list.wxss */
+page{
+  /* background-color: #2db7f5; */
+}
+.item-container{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 92%;
+  margin: 4%;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  /* pt:point像素点 */
+  padding-top: 5pt;
+}
+/* 上传人 */
+.item-name{
+  font-size: 12px;
+  margin-left: 15px;
+}
+/* 图片 */
+.img{
+  width: 150px;
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,32 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/list/list"
+  ],
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/list/list",
+        "iconPath": "./icon/list.png",
+        "selectedIconPath": "./icon/list.png",
+        "text": "所有图片"
+      },
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "./icon/photo.png",
+        "selectedIconPath": "./icon/photo.png",
+        "text": "上传图片"
+      }
+    ],
+    "selectedColor": "#2db7f5",
+    "color": "#8a8a8a"
+    
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "相册",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}

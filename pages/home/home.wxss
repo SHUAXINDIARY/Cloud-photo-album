@@ -1,0 +1,16 @@
+/* pages/home/home.wxss */
+.tittle{
+  text-align: center;
+  font-size: 20px;
+}
+.con{
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+} 
+button{
+  width: 100px;
+}
+.box{
+  margin-top: 20%;
+}
