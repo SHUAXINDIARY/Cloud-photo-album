@@ -4,7 +4,7 @@
   <view class="con">
     <!-- 通过bindtap绑定点击事件 -->
     <button bindtap="upload">单张上传</button>
-    <button>多张上传</button>
+    <button >多张上传</button>
   </view>
   <view class="tittle">其他功能</view>
   <view class="con">
