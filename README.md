@@ -52,3 +52,38 @@
 
 4.上传者名字为登陆后的微信号
 
+
+--------
+
+# 采坑
+
+1.点击事件是bindTap='事件名'
+
+    ```javascript
+        <view data-hint='hi' bindTap='clickme'></view>
+    ```
+
+2.更改data的数据
+
+    ```javascript
+        this.setData({
+            key:value
+        })
+    ```
+
+3.点击事件传递参数：
+
+    传递：data-***='传递的值'
+
+    ```javascript
+        <view data-hint='hi' bindTap='clickme'></view>
+    ```
+
+    接收：
+
+    ```javascript
+        clickme=function(event){
+            event.currentTarget.dataset.hint=='hi';//true
+        }
+    ```
+
