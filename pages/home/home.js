@@ -1,13 +1,13 @@
 // pages/home/home.js
 let until = require('../../utils/util.js');
 let feature = require('../../utils/feature.js');
+let app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
-  data: {
-  },
+  data: {},
   /**自定义函数 */
   // 1.单张图片上传
   upload() {
@@ -52,7 +52,17 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    // 通过全局变量userInfo检查是否登陆
+    if (app.globalData.userInfo==null) {
+      wx.switchTab({
+        url: "../login/login"
+      });
+      wx.showToast({
+        icon: 'none',
+        title: '请先登录',
+      });
+    }
+    console.log(app.globalData.userInfo);
   },
 
   /**

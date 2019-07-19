@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/login/login",
     "pages/home/home",
     "pages/list/list"
   ],
@@ -16,11 +17,16 @@
         "iconPath": "./icon/photo.png",
         "selectedIconPath": "./icon/photo.png",
         "text": "上传图片"
+      },
+      {
+        "pagePath": "pages/login/login",
+        "iconPath": "./icon/my.png",
+        "selectedIconPath": "./icon/my.png",
+        "text": "我的信息"
       }
     ],
-    "selectedColor": "#2db7f5",
+    "selectedColor": "#000",
     "color": "#8a8a8a"
-    
   },
   "window": {
     "backgroundTextStyle": "light",

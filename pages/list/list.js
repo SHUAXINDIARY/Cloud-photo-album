@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    dataList: []
+    dataList: [],
+    hasImg: true
   },
 
   /**
@@ -13,7 +14,6 @@ Page({
    */
   onShow: function() {
     this.getImgList();
-    
   },
   getImgList() {
     let that = this;
@@ -24,11 +24,10 @@ Page({
         console.log(res.data)
         that.setData({
           dataList: res.data
-        })
-        if (this.data.dataList.length == 0) {
-          wx.showToast({
-            title: '暂时没有图片',
-          })
+        });
+        console.log(that.data.dataList.length);
+        if (that.data.dataList.length != 0) {
+          that.data.hasImg = true;
         }
       }
     })

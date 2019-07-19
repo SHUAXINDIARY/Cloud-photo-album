@@ -7,9 +7,9 @@ App({
     wx.cloud.init({
       // 是否在将用户访问记录到用户管理中，在控制台中可见
       traceUser:true,
-      // 设置云开发环境
-      env:"shauxin-chy42"
-    })
+      // 设置云开发环境  后面填你的云存储环境id
+      env:"***"
+    });
   },
   // 全局变量
   globalData: {

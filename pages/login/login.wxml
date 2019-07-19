@@ -1,0 +1,44 @@
+<!-- pages/login/login.wxml -->
+<view class="con">
+  <view class="top">
+    <block wx:if="{{hasUserInfo==false}}">
+      <view>头像</view>
+      <view>昵称</view>
+    </block>
+    <block wx:else>
+      <view>
+        <image src="{{userInfo.avatarUrl}}" alt="头像" mode="cover" class="userinfo-avatar"></image>
+      </view>
+      <view>{{userInfo.nickName}}</view>
+    </block>
+  </view>
+  <view class="bottom">
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">作者</view>
+        <view class="weui-cell__ft">刷新</view>
+      </view>
+    </view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">联系方式</view>
+        <view class="weui-cell__ft">986384495@qq.com</view>
+      </view>
+    </view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">操作</view>
+        <view class="weui-cell__ft">
+          <block wx:if="{{hasUserInfo==false}}">
+            <button class="weui-btn" type="primary" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+              登陆
+            </button>
+          </block>
+          <block wx:else>
+            <button class="weui-btn" type="warn" bindtap="quit">退出</button>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
