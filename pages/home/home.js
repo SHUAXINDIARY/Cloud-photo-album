@@ -1,6 +1,5 @@
 // pages/home/home.js
 let until = require('../../utils/util.js');
-let datacon = require('../../database/index.js');
 let feature = require('../../utils/feature.js');
 Page({
 
@@ -8,8 +7,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    img: "",
-    // imgs: []
   },
   /**自定义函数 */
   // 1.单张图片上传
