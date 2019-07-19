@@ -8,35 +8,34 @@ Page({
    * 页面的初始数据
    */
   data: {
-    img: ""
+    img: "",
+    // imgs: []
   },
   /**自定义函数 */
-  // 1.图片上传
+  // 1.单张图片上传
   upload() {
     let that = this;
+    // 获取传递参数 event.currentTarget.dataset.imgnumber
     feature.upload().then(
       (res) => {
-        // 返回文件 ID  后需要操作该图片就用返回的该id
-        console.log('id是' + res.fileID);
-        that.setData({
-          img: res.fileID
-        });
-        that.addImgList(res.fileID);
+        console.log(res);
         // 隐藏加载提示
         wx.hideLoading();
         until.hintResult('上传成功');
       }
     )
   },
-  // 2.把上传的图片的id存到数据库imagelist中
-  addImgList(imgurl) {
-    let data = {
-      name: "刷新",
-      imgUrl: imgurl,
-      time: until.getNowFormatDate()
-    };
-    // 第一个参数要操作的集合 第二个数据是要添加的数据(对象类型)
-    datacon.add('imagelist', data);
+  //1.5 多张图片上传
+  uploads() {
+    let that = this;
+    feature.uploads().then(
+      (res) => {
+        // 隐藏加载提示
+        wx.hideLoading();
+        until.hintResult('上传成功');
+      }
+    );
+    // console.log(that.data.imgs);
   },
   /**
    * 生命周期函数--监听页面加载
