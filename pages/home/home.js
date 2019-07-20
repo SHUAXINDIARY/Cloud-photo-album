@@ -39,7 +39,7 @@ Page({
           wx.hideLoading();
           until.hintResult('上传成功');
         }
-      );
+      )
     }
 
     // console.log(that.data.imgs);

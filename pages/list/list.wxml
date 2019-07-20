@@ -1,17 +1,14 @@
-<!--pages/list/list.wxml-->
-<block wx:if="{{hasImg==false}}" >
-  <view class="hint">
-    暂时没有图片
-  </view>
+<!-- pages/list/list.wxml -->
+<block wx:if="{{hasImg==false}}">
+  <view class="hint">暂时没有图片</view>
 </block>
 <block wx:else>
   <block wx:for='{{dataList}}' wx:key='item'>
-    <view class="item-container">
+    <view class="item-container" >
       <text class="item-name">上传人:{{item.name}}</text>
       <text class="item-name">上传时间:{{item.time}}</text>
       <!-- widthFix	缩放模式，宽度不变，高度自动变化，保持原图宽高比不变 -->
-      <image class="img" src="{{item.imgUrl}}" mode="widthFix"></image>
+      <image class="img" src="{{item.imgUrl}}" mode="widthFix" data-imgurl='{{item}}' bindtap="download"></image>
     </view>
   </block>
-
 </block>

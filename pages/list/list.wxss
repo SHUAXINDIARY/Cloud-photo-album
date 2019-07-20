@@ -1,7 +1,4 @@
 /* pages/list/list.wxss */
-page{
-  /* background-color: #2db7f5; */
-}
 .hint{
   text-align: center;
 }
@@ -15,6 +12,12 @@ page{
   background-color: #fff;
   /* pt:point像素点 */
   padding-top: 5pt;
+  position: relative;
+}
+.dow{
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 /* 上传人 */
 .item-name{

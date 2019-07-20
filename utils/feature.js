@@ -6,12 +6,12 @@ let choseImg = (imgCount) => {
   return new Promise((resolve, reject) => {
     wx.chooseImage({
       count: imgCount,
-      success: function(res) {
+      success: function (res) {
         // 加一层提示
         until.hintLoading('上传中');
         resolve(res);
       },
-      fail: function(err) {
+      fail: function (err) {
         console.log('失败');
         reject(err);
       }
@@ -75,7 +75,58 @@ let uploads = () => {
     );
   });
 };
+// 下载文件
+let downloadFile = function (imgurl) {
+  return new Promise((resolve, reject) => {
+    wx.cloud.downloadFile({
+      fileID: imgurl,
+      success: function (res) {
+        until.hintLoading('下载中');
+        console.log(res)
+        // 保存到相册
+
+        wx.saveImageToPhotosAlbum({
+          filePath: res.tempFilePath,
+          success: function (res) {
+            console.log(res)
+            resolve(res);
+          },
+          fail: function (res) {
+            console.log(res)
+            console.log('保存失败');
+            reject(res);
+          }
+        })
+
+      },
+      fail: function () {
+        console.log('下载失败')
+      }
+    })
+
+  })
+};
+let modal = function () {
+  return new Promise((resolve, reject) => {
+    wx.showModal({
+      title: '提示',
+      content: '确定下载？',
+      success(res) {
+        if (res.confirm) {
+          console.log('用户点击确定');
+          resolve(res.confirm);
+        } else if (res.cancel) {
+          console.log('用户点击取消');
+          reject(res.cancel);
+        }
+      }
+    })
+  })
+
+};
 module.exports = {
   upload,
-  uploads
+  uploads,
+  modal,
+  downloadFile
 }

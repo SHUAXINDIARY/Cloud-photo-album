@@ -79,3 +79,17 @@
             event.currentTarget.dataset.hint=='hi';//true
         }
 
+4.利用云开发存储时使用的api
+    
+    1.上传文件-----wx.cloud.uploadFile
+    2.下载文件-----wx.cloud.downloadFile
+    3.获取下载链接-wx.cloud.getTempFileURL
+    4.删除文件-----wx.cloud.deleteFile
+
+5.对外部服务器交互时的版本
+    
+    1.上传文件-----wx.uploadFile
+    2.下载文件-----wx.downloadFile
+    3.获取下载链接-wx.getTempFileURL
+
+
