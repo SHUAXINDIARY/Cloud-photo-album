@@ -1,8 +1,7 @@
 // pages/list/list.js
-let feature = require('../../utils/feature');
-let until = require('../../utils/util');
 
-// test分支做测试版本
+
+// test分支做删除的测试版本
 
 Page({
   /**
@@ -19,25 +18,34 @@ Page({
   onShow: function () {
     this.getImgList();
   },
-  download(e) {
-    // 下载前确认
-    feature.modal().then((res) => {
-      // 获取点击图片id
-      let imgurl = e.currentTarget.dataset.imgurl.imgUrl;
-      console.log(imgurl);
-      // 下载
-      feature.downloadFile(imgurl)
-        .then((res) => {
-          console.log(res);
-          wx.hideLoading();
-          until.hintResult('下载成功');
-        })
-        .catch((res) => {
-          until.hintResult('取消');
-        });
-    }).catch((res) => {
-      until.hintResult('取消下载');
+  getdetail(e) {
+    // 跳转到详情页，可进行删除下载操作
+    wx.navigateTo({
+      url: '../list-detail/list-detail',
+      success: function (res) {
+        console.log('开始');
+        // 通过eventChannel向被打开页面传送点击图片的imgurl
+        res.eventChannel.emit('receive', { data: e.currentTarget.dataset.imgurl.imgUrl })
+      }
     })
+    // 下载前确认
+    // feature.modal().then((res) => {
+    //   // 获取点击图片id
+    //   let imgurl = e.currentTarget.dataset.imgurl.imgUrl;
+    //   console.log(imgurl);
+    //   // 下载
+    //   feature.downloadFile(imgurl)
+    //     .then((res) => {
+    //       console.log(res);
+    //       wx.hideLoading();
+    //       until.hintResult('下载成功');
+    //     })
+    //     .catch((res) => {
+    //       until.hintResult('取消');
+    //     });
+    // }).catch((res) => {
+    //   until.hintResult('取消下载');
+    // })
 
   },
   getImgList() {

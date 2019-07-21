@@ -1,0 +1,19 @@
+/* pages/list-detail/list-detail.wxss */
+@import '../../weui.wxss';
+.top {
+    height: 30%;
+    width: 92%;
+    border-radius: 5%;
+    margin: 10% auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    /* display: flex;
+    flex-direction: column; */
+    /* justify-content: space-around; */
+    text-align: center;
+}
+.img{
+    width: 150px;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}

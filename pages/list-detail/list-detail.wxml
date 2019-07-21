@@ -1,0 +1,18 @@
+<!-- pages/list-detail/list-detail.wxml -->
+<view class="top">
+    <image src="{{imgurl}}" mode="widthFix" class="img"></image>
+</view>
+<view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+        <view class="weui-cell__bd">下载</view>
+        <view class="weui-cell__ft">
+            <button type="primary" bindtap="download">确定</button>
+        </view>
+    </view>
+    <view class="weui-cell">
+        <view class="weui-cell__bd">删除</view>
+        <view class="weui-cell__ft">
+            <button type="warn">确定</button>
+        </view>
+    </view>
+</view>
