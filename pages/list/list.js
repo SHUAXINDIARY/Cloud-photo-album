@@ -11,7 +11,6 @@ Page({
     dataList: [],
     hasImg: true
   },
-
   /**
    * 生命周期函数--监听页面显示
    */
@@ -20,33 +19,17 @@ Page({
   },
   getdetail(e) {
     // 跳转到详情页，可进行删除下载操作
+    console.log(e);
+    let imgurl = e.currentTarget.dataset.imgurl.imgUrl;
+    let id = e.currentTarget.dataset.imgurl._id;
     wx.navigateTo({
       url: '../list-detail/list-detail',
       success: function (res) {
         console.log('开始');
         // 通过eventChannel向被打开页面传送点击图片的imgurl
-        res.eventChannel.emit('receive', { data: e.currentTarget.dataset.imgurl.imgUrl })
+        res.eventChannel.emit('receive', { imgurl: imgurl, id: id })
       }
-    })
-    // 下载前确认
-    // feature.modal().then((res) => {
-    //   // 获取点击图片id
-    //   let imgurl = e.currentTarget.dataset.imgurl.imgUrl;
-    //   console.log(imgurl);
-    //   // 下载
-    //   feature.downloadFile(imgurl)
-    //     .then((res) => {
-    //       console.log(res);
-    //       wx.hideLoading();
-    //       until.hintResult('下载成功');
-    //     })
-    //     .catch((res) => {
-    //       until.hintResult('取消');
-    //     });
-    // }).catch((res) => {
-    //   until.hintResult('取消下载');
-    // })
-
+    });
   },
   getImgList() {
     let that = this;

@@ -12,7 +12,7 @@
     <view class="weui-cell">
         <view class="weui-cell__bd">删除</view>
         <view class="weui-cell__ft">
-            <button type="warn">确定</button>
+            <button type="warn" bindtap="delimg">确定</button>
         </view>
     </view>
 </view>

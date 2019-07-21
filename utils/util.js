@@ -15,7 +15,7 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 //获取现在时间(毫秒)
-const getNowFormatDate = function() {
+const getNowFormatDate = function () {
   let date = new Date();
   let seperator1 = '-';
   let seperator2 = ':';
@@ -40,9 +40,40 @@ let hintLoading = (msg) => {
     title: msg,
   })
 };
+let modal = function () {
+  return new Promise((resolve, reject) => {
+    wx.showModal({
+      title: '提示',
+      content: '确定？',
+      success(res) {
+        if (res.confirm) {
+          console.log('用户点击确定');
+          resolve(res.confirm);
+        } else if (res.cancel) {
+          console.log('用户点击取消');
+          reject(res.cancel);
+        }
+      }
+    })
+  })
+};
+let switchpage = function (url) {
+  return new Promise((resolve,reject) => {
+    wx.switchTab({
+      url: url,
+      success(res) {
+        resolve(res);
+      }
+    });
+  })
+
+
+};
 module.exports = {
   formatTime: formatTime,
   getNowFormatDate: getNowFormatDate,
   hintResult: hintResult,
-  hintLoading: hintLoading
+  hintLoading: hintLoading,
+  modal: modal,
+  switchpage: switchpage
 }

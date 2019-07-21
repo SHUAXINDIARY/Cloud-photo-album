@@ -1,5 +1,5 @@
 let until = require('./util.js');
-let datacon = require('../database/index.js');
+let database = require('../database/index.js');
 let timetamp = Date.parse(new Date());
 // 封装选择照片
 let choseImg = (imgCount) => {
@@ -33,7 +33,7 @@ let upload = () => {
               imgUrl: res.fileID,
               time: until.getNowFormatDate()
             };
-            datacon.add('imagelist', data);
+            database.add('imagelist', data);
             resolve(res);
           },
           fail: err => {
@@ -62,7 +62,7 @@ let uploads = () => {
                 imgUrl: res.fileID,
                 time: until.getNowFormatDate()
               };
-              datacon.add('imagelist', data);
+              database.add('imagelist', data);
               resolve(res);
             },
             fail: err => {
@@ -106,27 +106,20 @@ let downloadFile = function (imgurl) {
 
   })
 };
-let modal = function () {
-  return new Promise((resolve, reject) => {
-    wx.showModal({
-      title: '提示',
-      content: '确定下载？',
-      success(res) {
-        if (res.confirm) {
-          console.log('用户点击确定');
-          resolve(res.confirm);
-        } else if (res.cancel) {
-          console.log('用户点击取消');
-          reject(res.cancel);
-        }
-      }
-    })
-  })
-
+let delFile=function(fileID){
+  wx.cloud.deleteFile({
+    fileList: [fileID],
+    success: res => {
+      console.log('云端删除成功');
+    },
+    fail: err => {
+      console.log('远端删除失败');
+    }
+  });
 };
 module.exports = {
   upload,
   uploads,
-  modal,
+  delFile,
   downloadFile
 }
