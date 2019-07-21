@@ -2,8 +2,9 @@
 let feature = require('../../utils/feature');
 let until = require('../../utils/util');
 
-Page({
+// test分支做测试版本
 
+Page({
   /**
    * 页面的初始数据
    */

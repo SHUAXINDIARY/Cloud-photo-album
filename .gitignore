@@ -1,5 +1,5 @@
 #忽略app.js文件
-app.js
+# app.js
 
 # 清空缓存(注意最后有个点)
 # git rm -rf --cached .
